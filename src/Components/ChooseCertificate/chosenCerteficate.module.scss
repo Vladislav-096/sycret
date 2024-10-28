@@ -1,0 +1,194 @@
+@use "./src/styles/_variables.scss" as *;
+@use "./src/styles/_mixin.scss" as *;
+
+.dropdown-container {
+  position: absolute;
+  width: 400px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: 577px) {
+    width: 90vw;
+  }
+
+  .dropdown {
+    display: flex;
+    width: inherit;
+    align-items: center;
+    border: 1px solid $borderColor;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $secondaryBackground;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $tertaryBackground;
+    }
+
+    .input-wrapper {
+      width: 90%;
+      position: relative;
+
+      .input {
+        position: relative;
+        height: 40px;
+        padding: 9px;
+        color: $primaryColor;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 70%;
+          width: 1px;
+          background-color: $borderColor;
+          right: 0;
+          top: 15%;
+        }
+      }
+
+      .placeholder {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 9px;
+        color: $secondaryColor;
+      }
+    }
+
+    .toggle {
+      flex: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-image: url("../../assets/arrow.svg");
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        width: 20px;
+        height: 10px;
+        transition: transform 0.2s;
+      }
+    }
+
+    .toggle-upsidedown {
+      &:before {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+    }
+  }
+
+  .suggests {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    top: 50px;
+    width: inherit;
+    border: 0px solid $borderColor;
+    background-color: $secondaryBackground;
+    border-radius: 5px;
+    transition: max-height 0.2s ease, border 0.2s ease;
+  }
+
+  .show-suggestions {
+    max-height: 300px;
+    border-width: 1px;
+    transition: max-height 0.5s ease, border 0.4s ease;
+  }
+
+  .options {
+    padding: 10px;
+  }
+
+  .button-option {
+    display: block;
+    color: $shh;
+    padding: 5px 5px;
+    width: 100%;
+    text-align: start;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $tertaryBackground;
+    }
+  }
+
+  .loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+  }
+
+  .error-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    .error-message {
+      text-align: center;
+      color: #ff0000;
+    }
+
+    .refetch-button {
+      position: relative;
+      color: rgba(0, 201, 0, 0.479);
+      transition: color 0.2s;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 1px;
+        width: 100%;
+        background-color: rgba(0, 201, 0, 0.479);
+        transition: background-color 0.2s;
+      }
+
+      &:hover {
+        color: rgb(0, 201, 0);
+
+        &::after {
+          background-color: rgb(0, 201, 0);
+        }
+      }
+    }
+
+    .refetch-disabled {
+      color: #969696;
+
+      &::after {
+        background-color: #969696;
+      }
+
+      &:hover {
+        color: #969696;
+
+        &::after {
+          background-color: #969696;
+        }
+      }
+    }
+  }
+}
+
+.price-container {
+  position: absolute;
+  bottom: 66px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.price {
+  margin-bottom: 10px;
+}
+
+.button-buy-link {
+  margin: 0 auto;
+  @include button(80px);
+}

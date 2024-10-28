@@ -1,0 +1,17 @@
+@use "./src/styles/_variables.scss" as *;
+
+@mixin button($width) {
+  display: block;
+  padding: 7px;
+  width: $width;
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  color: $shh;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $tertaryBackground;
+  }
+}
