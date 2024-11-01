@@ -1,4 +1,4 @@
-@use "./src/styles/_variables.scss" as *;
+@use "./_variables.scss" as *;
 
 @mixin button($width) {
   display: block;

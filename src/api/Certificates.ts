@@ -21,7 +21,7 @@ const certificateSchema = z.object({
   REC_PAYMENT_OBJECT: z.string(),
   REC_TAX: z.string(),
 });
-export type Certificate = z.infer<typeof certificateSchema>; //  мб не понадобится
+export type Certificate = z.infer<typeof certificateSchema>;
 
 const certificatesResponseSchema = z.object({
   data: z.array(certificateSchema),
